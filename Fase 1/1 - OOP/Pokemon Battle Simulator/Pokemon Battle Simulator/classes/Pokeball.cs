@@ -2,19 +2,10 @@
 
 public class Pokeball
 {
-    public Pokeball()
+    bool containsPokemon;
+    public Pokeball(int index)
     {
-        Console.WriteLine(GetType().Name);
-        //return null;
-    }
-
-    public void Throw()
-    {
-        Console.WriteLine(GetType().Name);
-    }
-
-    public void Return()
-    {
-        Console.WriteLine(GetType().Name);
+        new Charmander(charCount: index, strength: "Fire", weakness: "Water");
+        containsPokemon = true;
     }
 }

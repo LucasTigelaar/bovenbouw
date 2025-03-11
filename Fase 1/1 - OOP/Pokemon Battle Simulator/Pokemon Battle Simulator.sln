@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokemon Battle Simulator", "Pokemon Battle Simulator\Pokemon Battle Simulator.csproj", "{344C8CAC-AAE9-4091-810E-F35C56935282}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdr 2", "Pokemon Battle Simulator\Opdr 2.csproj", "{344C8CAC-AAE9-4091-810E-F35C56935282}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

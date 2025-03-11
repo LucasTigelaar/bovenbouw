@@ -6,16 +6,15 @@ public class Charmander
     public string Strength = "";
     public string Weakness = "";
 
-    public Charmander(string nickname, string strength, string weakness)
+    public Charmander(int charCount, string strength, string weakness)
     {
-        Console.WriteLine(GetType().Name);
-        this.Name = nickname;
-        this.Strength = strength;
-        this.Weakness = weakness;
+        Name = $"{GetType().Name}_{charCount}";
+        Strength = strength;
+        Weakness = weakness;
     }
 
     public string DoBattleCry()
     {
-        return $"{Name.ToUpper()}!!!!";
+        return $"{Name} uses Battle Cry!\n{Name.ToUpper()}!!!!";
     }
 }

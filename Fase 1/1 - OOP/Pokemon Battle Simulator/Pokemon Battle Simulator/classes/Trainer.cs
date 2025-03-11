@@ -2,19 +2,16 @@
 
 public class Trainer
 {
-    public Trainer()
-    {
-        Console.WriteLine(GetType().Name);
-        //return null;
-    }
+    public string Name = "";
+    public List<Pokeball> Belt;
 
-    public void ThrowPokeball()
+    public Trainer(string nickname)
     {
-        Console.WriteLine(GetType().Name);
-    }
-
-    public void ReturnPokemon()
-    {
-        Console.WriteLine(GetType().Name);
+        Name = nickname;
+        Belt = new List<Pokeball>();
+        for (int i = 1; i <= 6; i++)
+        {
+            Belt.Add(new Pokeball(index: i));
+        }
     }
 }

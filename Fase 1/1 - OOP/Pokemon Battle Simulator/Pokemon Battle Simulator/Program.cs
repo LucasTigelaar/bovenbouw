@@ -4,70 +4,78 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        // start
-        Console.WriteLine("Press Enter to choose Charmander");
+        //1.The player starts the game.
+        Console.WriteLine("Press Enter to start the game");
         Console.ReadLine();
 
-        Charmander charmanderObject = new Charmander(nickname: "", strength: "Fire", weakness: "Water"); // make new Charmander object
-        
-        charmanderObject.Name = Naming(); // initial naming
-        Attack(charmanderObject); // initial attack
+        //2.The player gives a name to the first trainer.
+        Trainer trainerOne = new Trainer(nickname: Naming("Choose your first trainers name:"));
 
-        string answer = "";
-        while (true)
+        //3.The player gives a name to the second trainer.
+        Trainer trainerTwo = new Trainer(nickname: Naming("Choose your second trainers name:"));
+
+        List<string> howManieth = new List<string>()
         {
-            Console.WriteLine("Type '1' to rename your Charmander or type '2' to stop playing:");
-            answer = Console.ReadLine().ToLower();
-            if (answer == "1")
-            {
-                charmanderObject.Name = Naming(); // optional rename
-                Attack(charmanderObject); // following attack
-            }
-            else if (answer == "2")
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Invalid input");
-            }
+            "first",
+            "second",
+            "third",
+            "fourth",
+            "fifth",
+            "sixth"
+        };
+
+        for (int i = 0; i < 6; i++)
+        {
+            Console.Write($"Press Enter to start round {i+1}");
+            Console.ReadLine();
+
+            //4.The first trainer throws the first/next pokeball on its belt.
+            Console.Write($"Trainer {trainerOne.Name} throws their {howManieth[i]} pokeball!\n");
+
+            //5.The pokeball released the charmander and charmander does its battle cry.
+
+            //6.The second trainer throws the first/next pokeball on its belt.
+            Console.Write($"Trainer {trainerTwo.Name} throws their {howManieth[i]} pokeball!\n");
+
+            //7.The pokeball released the charmander and charmander does its battle cry.
+
+            //8.The first trainer returns the charmander back to its pokeball.
+
+            //9.The second trainer returns the charmander back to its pokeball.
+
         }
     }
+    //10.Repeat 4 to 9 until all pokeballs have been used by both trainers.
+    //The player can quit or restart the game.
 
-    // naming method
-    private static string Naming()
+    public static string Naming(string text)
     {
-        Console.WriteLine("Choose their name:");
-        string name = "";
+        string name;
+        bool nameIsValid = true;
+
         while (true)    
         {
-            name = Console.ReadLine();
-            if (name == "")
+            Console.WriteLine(text);
+            name = Console.ReadLine().Trim();
+
+            foreach (Char ch in name)
+            {
+                if (Char.IsLetter(ch) && Char.IsWhiteSpace(ch))
+                {
+                    continue;
+                }
+                nameIsValid = false;
+                break;
+            }
+
+            if (name != "" && nameIsValid)
+            {
+                return Char.ToUpper(name[0]) + name.Substring(1).ToLower();
+            }
+            else
             {
                 Console.WriteLine("Invalid input, try again:");
             }
-            else
-            {
-                return name;
-            }
         }
     }
-
-    // attack method
-    private static void Attack(Charmander poke)
-    {
-        Console.WriteLine("Charmander uses Battle Cry!");
-        for (int i = 0; i < 10; i++)
-        {
-            Console.WriteLine(poke.DoBattleCry());
-        }
-    }
-
-    // create trainer
-    //public Trainer CreateTrainer()
-    //{
-    //    Console.WriteLine(GetType().Name);
-    //}
 }
-
-// alt enter is your friend
