@@ -2,10 +2,18 @@
 
 public class Pokeball
 {
-    bool containsPokemon;
-    public Pokeball(int index)
+    public bool ContainsPokemon;
+    public string Name;
+    public Charmander CharmanderInPokeball;
+    public Pokeball(int ballCount, bool containsPokemon, Charmander charmanderInPokeball)
     {
-        new Charmander(charCount: index, strength: "Fire", weakness: "Water");
-        containsPokemon = true;
+        Name = $"{GetType().Name}_{ballCount}";
+        ContainsPokemon = containsPokemon;
+        CharmanderInPokeball = charmanderInPokeball;
+    }
+
+    public void OpenPokeball()
+    {
+        ContainsPokemon = false;
     }
 }

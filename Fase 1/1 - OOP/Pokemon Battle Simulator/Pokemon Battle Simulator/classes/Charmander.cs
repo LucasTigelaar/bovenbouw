@@ -3,14 +3,12 @@ namespace Pokemon_Battle_Simulator;
 public class Charmander
 {
     public string Name = "";
-    public string Strength = "";
-    public string Weakness = "";
+    public string Strength = "fire";
+    public string Weakness = "water";
 
-    public Charmander(int charCount, string strength, string weakness)
+    public Charmander(int charCount)
     {
         Name = $"{GetType().Name}_{charCount}";
-        Strength = strength;
-        Weakness = weakness;
     }
 
     public string DoBattleCry()
