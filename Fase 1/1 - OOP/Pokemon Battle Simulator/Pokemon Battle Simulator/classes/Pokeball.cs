@@ -15,5 +15,11 @@ public class Pokeball
     public void OpenPokeball()
     {
         ContainsPokemon = false;
+        Console.WriteLine($"The pokeball opened and {CharmanderInPokeball.Name} is released!");
+    }
+    public void ClosePokeball()
+    {
+        ContainsPokemon = true;
+        Console.WriteLine($"The pokeball closed and {CharmanderInPokeball.Name} is returned.");
     }
 }

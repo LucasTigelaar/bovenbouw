@@ -11,8 +11,8 @@ public class Charmander
         Name = $"{GetType().Name}_{charCount}";
     }
 
-    public string DoBattleCry()
+    public void DoBattleCry()
     {
-        return $"{Name} uses Battle Cry!\n{Name.ToUpper()}!!!!";
+        Console.WriteLine($"{Name} uses Battle Cry!\n{Name.ToUpper()}!!!!");
     }
 }

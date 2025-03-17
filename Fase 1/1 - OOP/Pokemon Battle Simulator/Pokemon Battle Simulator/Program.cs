@@ -4,7 +4,6 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        //1.The player starts the game.
         Console.WriteLine("Press Enter to start the game");
         Console.ReadLine();
 
@@ -13,6 +12,11 @@ public class Program
 
         for (int i = 0; i < 6; i++)
         {
+            if (BeltTrainerOne.Count() > 6)
+            {
+                throw new ArgumentException("A trainers belt can only contain 6 Pokeballs.");
+            }
+
             Charmander charmander_1 = new Charmander(charCount: i);
             Pokeball pokeball_1 = new Pokeball(ballCount: i, containsPokemon: true, charmanderInPokeball: charmander_1);
             BeltTrainerOne.Add(pokeball_1);
@@ -22,15 +26,10 @@ public class Program
             BeltTrainerTwo.Add(pokeball_2);
         }
 
-        //2.The player gives a name to the first trainer.
         Trainer trainerOne = new Trainer(nickname: Naming("Choose your first trainers name:"), belt: BeltTrainerOne);
 
-        //3.The player gives a name to the second trainer.
         Trainer trainerTwo = new Trainer(nickname: Naming("Choose your second trainers name:"), belt: BeltTrainerTwo);
-        Console.WriteLine(trainerTwo.Belt[3].CharmanderInPokeball.Name);
-
-        // koppel aan elke trainer zes unieke pokeballs door middel van lists
-
+        //Console.WriteLine(trainerTwo.Belt[3].CharmanderInPokeball.Name);
 
         List<string> howManieth = new List<string>()
         {
@@ -44,39 +43,32 @@ public class Program
 
         for (int i = 0; i < 6; i++)
         {
-            Console.Write($"Press Enter to start round {i+1}");
-            Console.ReadLine();
+            Console.WriteLine($"\nPress Enter to start round {i+1}. Type 'quit' to quit.");
+            string answer = Console.ReadLine().ToLower();
 
-            //4.The first trainer throws the first/next pokeball on its belt.
-            Console.Write($"Trainer {trainerOne.Name} throws their {howManieth[i]} pokeball!\n");
+            if (answer == "quit")
+            {
+                break;
+            }
 
-            //5.The pokeball released the charmander and charmander does its battle cry.
-            Console.WriteLine(trainerOne.Name);
-            trainerOne.ThrowPokeball();
+            trainerOne.ThrowPokeball(count: howManieth[i], index: i);
+            trainerTwo.ThrowPokeball(count: howManieth[i], index: i);
 
-            //6.The second trainer throws the first/next pokeball on its belt.
-            Console.Write($"Trainer {trainerTwo.Name} throws their {howManieth[i]} pokeball!\n");
+            trainerOne.Belt[i].CharmanderInPokeball.DoBattleCry();
+            trainerTwo.Belt[i].CharmanderInPokeball.DoBattleCry();
 
-            //7.The pokeball released the charmander and charmander does its battle cry.
-
-            //8.The first trainer returns the charmander back to its pokeball.
-
-            //9.The second trainer returns the charmander back to its pokeball.
-
+            trainerOne.ReturnPokeball(count: howManieth[i], index: i);
+            trainerTwo.ReturnPokeball(count: howManieth[i], index: i);
         }
     }
-    //10.Repeat 4 to 9 until all pokeballs have been used by both trainers.
-    //The player can quit or restart the game.
 
     public static string Naming(string text)
     {
-        string name;
-        bool nameIsValid = true;
-
         while (true)    
         {
             Console.WriteLine(text);
-            name = Console.ReadLine().Trim();
+            string name = Console.ReadLine().Trim();
+            bool nameIsValid = true;
 
             foreach (Char ch in name)
             {

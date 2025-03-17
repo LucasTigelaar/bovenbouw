@@ -11,8 +11,15 @@ public class Trainer
         Belt = belt;
     }
 
-    public void ThrowPokeball()
+    public void ThrowPokeball(string count, int index)
     {
-        Console.WriteLine("Test");
+        Console.WriteLine($"Trainer {Name} threw their {count} pokeball.");
+        Belt[index].OpenPokeball();
+    }
+
+    public void ReturnPokeball(string count, int index)
+    {
+        Console.WriteLine($"Trainer {Name} returned their {count} pokeball");
+        Belt[index].ClosePokeball();
     }
 }
