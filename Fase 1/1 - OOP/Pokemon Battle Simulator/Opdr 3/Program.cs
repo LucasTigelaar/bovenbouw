@@ -4,8 +4,9 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Press Enter to start the game");
-        Console.ReadLine();
+        Console.WriteLine("Press any button to start the game");
+        Console.ReadKey();
+        Console.Clear();
 
         List<Pokeball> BeltTrainerOne = new List<Pokeball>();
         List<Pokeball> BeltTrainerTwo = new List<Pokeball>();
