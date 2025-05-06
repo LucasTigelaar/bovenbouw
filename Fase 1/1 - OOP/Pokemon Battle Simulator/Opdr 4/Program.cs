@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace Pokemon_Battle_Simulator;
+﻿namespace Pokemon_Battle_Simulator;
 
 public class Program
 {
@@ -30,31 +28,13 @@ public class Program
             BeltTrainerTwo.Add(new Pokeball(ballCount: i + Flag, containsPokemon: true, pokemonInPokeball: new Squirtle($"Squirtle_{i + Flag}")));
         }
 
-        //------------
-        //1                 rnd.Next(count);
-        //Bulbasaur_0       BeltTrainerOne[ran].PokemonInPokeball.Name
-        //------------
-        //0
-        //Charmander_0
-        //------------
-        //4
-        //Bulbasaur_1
-        //------------
-        //3
-        //Charmander_1
-        //------------
-        //2
-        //Squirtle_0
-        //------------
-        //5
-        //Squirtle_1
-        //------------
-
         Shuffle(BeltTrainerOne);
         Shuffle(BeltTrainerTwo);
 
         Trainer trainerOne = new Trainer(nickname: Naming(text: "Choose your first trainers name:"), belt: BeltTrainerOne);
         Trainer trainerTwo = new Trainer(nickname: Naming(text: "Choose your second trainers name:"), belt: BeltTrainerTwo);
+
+        Console.Clear();
 
         Arena arena = new Arena();
         arena.Arena_(TrainerOne: trainerOne, TrainerTwo: trainerTwo);
@@ -84,18 +64,13 @@ public class Program
         }
     }
 
-    static void Shuffle<T>(List<T> list)
+    static void Shuffle<T>(List<T> unShuffledList)
     {
         Random rnd = new Random();
-        int count = list.Count();
-        int last = count - 1;
-        List<T> tmp;
-
-        for (int i = count; i < 1; i++)
+        for (int num = unShuffledList.Count - 1; num > 0; --num)
         {
-            int num = rnd.Next(i + 1);
-            tmp 
+            int nxt = rnd.Next(num + 1);
+            (unShuffledList[num], unShuffledList[nxt]) = (unShuffledList[nxt], unShuffledList[num]);
         }
-
     }
 }
