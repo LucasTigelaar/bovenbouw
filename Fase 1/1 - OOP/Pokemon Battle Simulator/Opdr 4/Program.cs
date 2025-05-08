@@ -31,7 +31,7 @@ public class Program
         Shuffle(BeltTrainerOne);
         Shuffle(BeltTrainerTwo);
 
-        Trainer trainerOne = new Trainer(nickname: Naming(text: "Choose your first trainers name:"), belt: BeltTrainerOne);
+        Trainer trainerOne = new Trainer(nickname: Naming(text: "Choose your first trainers name:"), belt: BeltTrainerOne); 
         Trainer trainerTwo = new Trainer(nickname: Naming(text: "Choose your second trainers name:"), belt: BeltTrainerTwo);
 
         Console.Clear();
@@ -67,10 +67,10 @@ public class Program
     static void Shuffle<T>(List<T> unShuffledList)
     {
         Random rnd = new Random();
-        for (int num = unShuffledList.Count - 1; num > 0; --num)
+        for (int index = unShuffledList.Count - 1; index > 0; --index)
         {
-            int nxt = rnd.Next(num + 1);
-            (unShuffledList[num], unShuffledList[nxt]) = (unShuffledList[nxt], unShuffledList[num]);
+            int rndInt = rnd.Next(index + 1);
+            (unShuffledList[index], unShuffledList[rndInt]) = (unShuffledList[rndInt], unShuffledList[index]);
         }
     }
 }

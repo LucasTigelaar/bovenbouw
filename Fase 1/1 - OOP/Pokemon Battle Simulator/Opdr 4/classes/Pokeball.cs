@@ -12,10 +12,11 @@ public class Pokeball
         PokemonInPokeball = pokemonInPokeball;
     }
 
-    public void OpenPokeball()
+    public Pokemon OpenPokeball()
     {
         ContainsPokemon = false;
         Console.WriteLine($"The pokeball opened and {PokemonInPokeball.Name} is released!");
+        return PokemonInPokeball;
     }
     public void ClosePokeball()
     {

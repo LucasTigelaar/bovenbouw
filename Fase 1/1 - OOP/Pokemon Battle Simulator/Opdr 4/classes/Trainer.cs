@@ -11,10 +11,11 @@ public class Trainer
         Belt = belt;
     }
 
-    public void ThrowPokeball(string count, int index)
+    public Pokemon ThrowPokeball(string count, int index)
     {
         Console.WriteLine($"Trainer {Name} threw their {count} pokeball.");
-        Belt[index].OpenPokeball();
+        Pokemon pokemon = Belt[index].OpenPokeball();
+        return pokemon;
     }
 
     public void ReturnPokeball(string count, int index)
