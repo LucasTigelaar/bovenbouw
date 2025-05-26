@@ -193,36 +193,40 @@ var games = [
     }
 ]
 
-// title: string
-// price: int
-// genre: string
-// rating: int
-
 for (let i in games) {
-    // create div
-    let div = document.createElement("div");
-    let divId = "div" + i;
+    let div = document.createElement("section")
+    let divId = "section"+i
     div.setAttribute("id", divId)
-    document.getElementsByClassName("main")[0].appendChild(div);
-    div.setAttribute("class", "game");
+    document.getElementsByClassName("main")[0].appendChild(div)
 
-    // create title
-    createChild("h2", "title" + i, games[i].title, divId);
-
-    // create price
-    createChild("p2", "price" + i, games[i].price, divId);
-
-    // create genre
-    createChild("p2", "genre" + i, games[i].genre, divId);
-
-    // create rating
-    createChild("p2", "rating" + i, games[i].rating, divId);
+    createChild("button", "button"+i, null, divId)
+    createChild("div", "game"+i, null, divId)
+    createChild("h2", "title"+i, games[i].title, "game"+i)
+    createChild("p", "price"+i, games[i].price, "game"+i)
 }
 
 function createChild(elementType, id, content, appendTo) {
-    let element = document.createElement(elementType);
-    let elementId = id;
-    element.setAttribute("id", elementId);
-    element.innerHTML = content;
-    document.getElementById(appendTo).appendChild(element);
+    let element = document.createElement(elementType)
+    element.setAttribute("id", id)
+
+    if (elementType == "button") {
+        element.addEventListener("click", function() {
+            console.log("click")
+            element.classList.toggle("button_pressed")
+        })
+    }
+
+    if (content != null) {
+        if (content == 0) {
+            element.innerHTML = "Free"
+        }
+        else if (content.toString().includes(".") == false) {
+            element.innerHTML = content.toString()+",-"
+        }
+        else {
+            element.innerHTML = content
+        }
+    }
+
+    document.getElementById(appendTo).appendChild(element)
 }
