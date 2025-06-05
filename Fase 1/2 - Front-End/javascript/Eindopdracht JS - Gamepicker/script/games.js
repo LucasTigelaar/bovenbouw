@@ -1,48 +1,3 @@
-
-// function om een element aan te maken
-function createChild(elementType, id, content, appendTo) {
-
-    // maak element aan
-    let element = document.createElement(elementType);
-
-    // geef element een id
-    element.setAttribute("id", id);
-
-    // button onclick function
-    if (elementType == "button") {
-        element.addEventListener("click", function() {
-            if (selectedGames.includes(id)) {
-                var indexOfId = selectedGames.indexOf(id);
-                selectedGames.splice(indexOfId, 1);
-            }
-            else {
-                selectedGames.push(id);
-            }
-            element.classList.toggle("button_pressed");
-        });
-    }
-
-    // vul element met content
-    if (id.includes("price")) {
-        if (content == 0) {
-            element.innerHTML = "Free";
-        }
-        else if (content.toString().includes(".") == false) {
-            element.innerHTML = content.toString()+",-";
-        }
-        else {
-            element.innerHTML = content;
-        }
-    }
-    else {
-        element.innerHTML = content;
-    }
-
-    // append element naar parent element
-    document.getElementById(appendTo).appendChild(element);
-}
-
-// array met games info
 var games = [
     {
         "title": "Counter-Strike: Global Offensive",
@@ -237,24 +192,3 @@ var games = [
         "rating": 3
     }
 ]
-
-// bewaar geselecteerde games
-var selectedGames = [];
-
-// maak de elements voor alle games
-for (let i in games) {
-    let div = document.createElement("section");
-    let divId = "section"+i;
-    div.setAttribute("id", divId);
-    document.getElementsByClassName("main")[0].appendChild(div);
-
-    createChild("button", "button"+i, null, divId);
-    createChild("div", "game"+i, null, divId);
-    createChild("h2", "title"+i, games[i].title, "game"+i);
-    createChild("p", "price"+i, games[i].price, "game"+i);
-}
-
-// bereken knop onclick function
-document.getElementById("bereken").addEventListener("click", function() {
-    console.log(selectedGames);
-});

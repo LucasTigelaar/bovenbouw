@@ -1,3 +1,5 @@
+/* general */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,18 @@
 div {
     margin: 0 auto;
 }
+
+.container {
+    width: 1000px;
+    height: 100%;
+}
+
+.main {
+    border: 1px solid black;
+}
+
+
+/* buttons */
 
 button {
     height: 60px;
@@ -19,8 +33,15 @@ button {
 
 button:hover {
     cursor: pointer;
-    background-color: rgb(205, 205, 205);
+    border-color: darkgray;
 }
+
+.button_pressed {
+    background-color: darkgray;
+}
+
+
+/* games */
 
 section {
     display: flex;
@@ -32,6 +53,7 @@ section > div {
     padding: 10px;
     margin: 10px;
     border: 1px solid black;
+    border-radius: 10px;
     width: 100%;
     justify-content: space-between;
 }
@@ -40,15 +62,26 @@ p {
     margin-top: 5px;
 }
 
-.container {
-    width: 1000px;
-    height: 100%;
-}
 
-.main {
+/* input */
+
+input {
+    width: 150px;
+    height: 60px;
     border: 1px solid black;
+    background-color: white;
 }
 
-.button_pressed {
-    background-color: rgb(155, 155, 155);
+.inputTop {
+    width: 100%;
+    display: flex;
 }
+
+/* .inputTopLeft {
+}
+
+.inputTopRight {
+} */
+
+/* .bereken {
+} */

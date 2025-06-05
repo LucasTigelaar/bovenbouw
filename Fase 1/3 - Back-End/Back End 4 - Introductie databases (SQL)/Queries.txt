@@ -1,0 +1,67 @@
+SELECT *
+
+    - Met welke query haal je alle helden op uit de database?
+SELECT * FROM `hero`; 
+
+    - Met welke query haal je alle personen op uit de database?
+SELECT * FROM `person`; 
+
+    - Hoeveel personen zijn NPC’s?
+SELECT COUNT(*) FROM `person` WHERE experience = 0; 
+189 npc's
+
+    - Met welke query haal je alle opdrachten (taken) op uit de database?
+SELECT * FROM `quest`; 
+
+    - Hoeveel dieren zijn er in RubyQuest?
+SELECT COUNT(*) FROM `animal`; 
+105 dieren
+
+
+    - Met welke query haal je alle wezens op uit de database?
+SELECT * FROM `creature`; 
+
+    - Met welke query laat je alle personen zien gesorteerd op naam (ascending)?
+SELECT * FROM `person` ORDER BY name; 
+
+    - Met welke query laat je alle steden zien gesorteerd op naam (descending)?
+SELECT * FROM `city` ORDER BY name DESC; 
+
+    - Hoeveel steden zijn er aanwezig?
+SELECT COUNT(*) FROM `city`;
+27 steden
+
+
+ 
+
+SELECT [column], [column]
+
+    - Met welke query haal je alle namen van bescherming op uit de database?
+SELECT name FROM `armor`; 
+
+    - Met welke query haal je alle namen en aanvalskracht van wapens op uit de database?
+SELECT name, attack FROM `weapon`; 
+
+    - Met welke query haal je alle namen en gezondheid van alle wezens op uit de database?
+SELECT name, health FROM `creature`;
+
+
+ 
+
+SELECT WHERE
+
+    - Met welke query kan je alleen de schapen laten zien die er in RubyQuest te vinden zijn?
+
+
+    - Met welke query kan je zien hoeveel schapen er in RubyQuest te vinden zijn?
+
+
+    - Hoeveel zeeslangen zijn er te vinden in RubyQuest?
+
+
+    - Welke persoon heeft id 7?
+
+
+    - Met welke 2 query’s kan je nagaan of de persoon uit vraag 4 een held of een NPC is?
+
+
